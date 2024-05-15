@@ -9,7 +9,7 @@ const About = () => {
           <p style={{ textAlign: 'justify', lineHeight: '2.25rem' }}>
                      Vedant Mehra : 221070039 
             <br></br>Niranjan More : 221070040 
-            <br></br>Labhansh Naik : 221080041
+            <br></br>Labhansh Naik : 221070041
             
           </p>
         </div>
