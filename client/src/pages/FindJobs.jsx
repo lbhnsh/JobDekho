@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import { experience, jobTypes, jobs } from "../utils/data";
 import { CustomButton, JobCard, ListBox, Loading } from "../components";
 import { apiRequest, updateURL } from "../utils";
+import ApplyJob from "./ApplyJob"; // Import ApplyJob component
 
 const FindJobs = () => {
   const [sort, setSort] = useState("Newest");
@@ -23,6 +24,8 @@ const FindJobs = () => {
   const [expVal, setExpVal] = useState([]);
 
   const [isFetching, setIsFetching] = useState(false);
+  const [showApplyForm, setShowApplyForm] = useState(false); // State to control ApplyJob component visibility
+  const [selectedJob, setSelectedJob] = useState(null);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -77,6 +80,11 @@ const FindJobs = () => {
   const handleShowMore = async (e) => {
     e.preventDefault();
     setPage((prev) => prev + 1);
+  };
+
+  const handleApplyNowClick = (job) => {
+    setSelectedJob(job);
+    setShowApplyForm(true);
   };
 
   useEffect(() => {
@@ -188,9 +196,17 @@ const FindJobs = () => {
                 logo: job?.company?.profileUrl,
                 ...job,
               };
-              return <JobCard job={newJob} key={index} />;
+              return (
+                <JobCard
+                  job={newJob}
+                  key={index}
+                  onApplyNowClick={handleApplyNowClick} // Pass the event handler to JobCard component
+                />
+                
+              );
             })}
           </div>
+           {selectedJob && <ApplyJob job={selectedJob} />}
 
           {isFetching && (
             <div className="py-10">
@@ -209,6 +225,10 @@ const FindJobs = () => {
           )}
         </div>
       </div>
+
+      {showApplyForm && (
+        <ApplyJob job={selectedJob} onClose={() => setShowApplyForm(false)} />
+      )}
     </div>
   );
 };

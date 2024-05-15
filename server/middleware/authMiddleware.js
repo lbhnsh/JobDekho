@@ -1,10 +1,13 @@
+// middleware/authMiddleware.js
+
 import JWT from "jsonwebtoken";
 
 const userAuth = async (req, res, next) => {
   const authHeader = req?.headers?.authorization;
+  console.log("Authorization Header:", authHeader); // Add logging
 
   if (!authHeader || !authHeader?.startsWith("Bearer")) {
-    next("Authentification Failed");
+    return res.status(401).json({ message: "Authentication Failed" });
   }
 
   const token = authHeader.split(" ")[1];
@@ -16,7 +19,7 @@ const userAuth = async (req, res, next) => {
     next();
   } catch (error) {
     console.log(error);
-    next("Authentication Failed");
+    return res.status(401).json({ message: "Authentication Failed" });
   }
 };
 

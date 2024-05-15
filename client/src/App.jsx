@@ -9,6 +9,7 @@ import {
   FindJobs,
   JobDetail,
   UploadJob,
+  ApplyJob,
   UserProfile,
 } from "./pages";
 import { useSelector } from "react-redux";
@@ -46,11 +47,11 @@ function App() {
             }
             element={<UserProfile />}
           />
-
-          <Route path={"/company-profile"} element={<CompanyProfile />} />
-          <Route path={"/company-profile/:id"} element={<CompanyProfile />} />
-          <Route path={"/upload-job"} element={<UploadJob />} />
-          <Route path={"/job-detail/:id"} element={<JobDetail />} />
+          <Route path="/company-profile" element={<CompanyProfile />} />
+          <Route path="/company-profile/:id" element={<CompanyProfile />} />
+          <Route path="/upload-job" element={<UploadJob />} />
+          <Route path="/apply-job" element={<ApplyJob />} /> {/* Add this line */}
+          <Route path="/job-detail/:id" element={<JobDetail />} />
         </Route>
 
         <Route path="/about-us" element={<About />} />

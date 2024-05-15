@@ -6,6 +6,7 @@ import FindJobs from "./FindJobs";
 import JobDetail from "./JobDetail";
 import UploadJob from "./UploadJob";
 import UserProfile from "./UserProfile";
+import ApplyJob from './ApplyJob';
 
 export {
   About,
@@ -13,6 +14,7 @@ export {
   Companies,
   CompanyProfile,
   FindJobs,
+  ApplyJob,
   JobDetail,
   UploadJob,
   UserProfile,
