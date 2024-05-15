@@ -107,15 +107,15 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative bg-[#f7fdfd] z-50">
+    <div className="relative bg-[#1B7593] z-50">
       <nav className="container mx-auto flex items-center justify-between p-5 mb-10">
         <div>
-          <Link to="/" className="text-blue-600 font-bold text-xl">
-            Carrer<span className="text-[#1677cccb]">Boost</span>
+          <Link to="/" className="text-white font-bold text-xl">
+            JobDekho
           </Link>
         </div>
 
-        <ul className="hidden lg:flex gap-10 text-base">
+        <ul className="hidden lg:flex gap-10 text-white">
           {user?.accountType === "seeker" && ( // Render "Find Job" link only for non-company accounts
             <li>
               <Link to="/">Find Job</Link>
