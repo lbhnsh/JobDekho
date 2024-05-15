@@ -102,7 +102,8 @@ const SignUp = ({ open, setOpen }) => {
                   <Dialog.Title
                     as="h3"
                     className="text-xl font-semibold lwading-6 text-gray-900"
-                  >
+                  > 
+                    <div className="text-customBlue md: px-15">Welcome to JobDekho <br></br></div>
                     {isRegister ? "Create Account" : "Account Sign In"}
                   </Dialog.Title>
 
@@ -260,7 +261,7 @@ const SignUp = ({ open, setOpen }) => {
                     <div className="mt-2">
                       <CustomButton
                         type="submit"
-                        containerStyles={`inline-flex justify-center rounded-md bg-blue-600 px-8 py-2 text-sm font-medium text-white outline-none hover:bg-blue-800`}
+                        containerStyles={`inline-flex justify-center rounded-md bg-customBlue px-8 py-2 text-sm font-medium text-white outline-none hover:bg-blue-800`}
                         title={isRegister ? "Create Account" : "Login Account"}
                       />
                     </div>

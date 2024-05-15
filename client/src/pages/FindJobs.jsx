@@ -105,9 +105,10 @@ const FindJobs = () => {
   }, [sort, filterJobTypes, filterExp, page]);
 
   return (
-    <div>
+    <div className="text-blue  p-4 mx-auto">
+      <div>
       <Header
-        title="Find Your Dream Job with Ease"
+        title="Find Your Dream Company"
         type="home"
         handleClick={handleSearchSubmit}
         searchQuery={searchQuery}
@@ -115,8 +116,10 @@ const FindJobs = () => {
         location={jobLocation}
         setLocation={setJobLocation}
       />
+      </div>
 
       <div className="container mx-auto flex gap-6 2xl:gap-10 md:px-5 py-0 md:py-6 bg-[#f7fdfd]">
+      {/* <p style="color: #1B7593;">This text is colored using inline styles.</p> */}
         <div className="hidden md:flex flex-col w-1/6 h-fit bg-white shadow-sm">
           <p className="text-lg font-semibold text-slate-600">Filter Search</p>
 

@@ -1,4 +1,3 @@
-// index.js is to allow easy exports
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CustomButton from "./CustomButton";

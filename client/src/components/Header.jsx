@@ -35,17 +35,18 @@ const Header = ({
   setLocation,
 }) => {
   return (
-    <div className="bg-[#f7fdfd]">
+    <div className="bg-[#f7fdfd] text-customBlue">
+      
       <div
         className={`container mx-auto px-5 ${
           type ? "h-[500px]" : "h-[350px]"
         } flex items-center relative`}
       >
-        <div className="w-full z-10">
+        <div className="w-full z-10 text-customBlue">
           <div className="mb-8">
-            <p className="text-slate-700 font-bold text-4xl">{title}</p>
+            <p className="font-bold text-4xl text-customBlue md:px-10 ">{title}</p>
           </div>
-          <div className="w-full flex items-center justify-around bg-white pz-2 md:px-5 py-2.5 md:py-6 shadow-2xl rounded-full">
+          <div className="w-full flex items-center justify-center bg-white bg-[#CDCDCD] pz-2 md:px-5 py-2.5 md:py-6  rounded-full">
             <SearchInput
               placeholder="Job Title or Keywords"
               icon={<AiOutlineSearch />}
@@ -66,7 +67,7 @@ const Header = ({
                 onClick={handleClick}
                 title="Search"
                 containerStyles={
-                  "text-white py-2 md:py-3 px-3 md:px-10 focus:outline-none bg-blue-600 rounded-full md:rounded-md text-small md:text-base"
+                  "text-white py-2 md:py-3 px-3 md:px-10 focus:outline-none bg-[#1B7593] rounded-full md:rounded-md text-small md:text-base"
                 }
               />
             </div>
