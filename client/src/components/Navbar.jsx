@@ -6,7 +6,6 @@ import { HiMenuAlt3 } from "react-icons/hi";
 import { AiOutlineClose, AiOutlineLogout } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CustomButton } from "../components/index";
-import { users } from "../utils/data";
 import { useSelector, useDispatch } from "react-redux";
 import { Logout } from "../redux/userSlice";
 
@@ -117,9 +116,11 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden lg:flex gap-10 text-base">
-          <li>
-            <Link to="/">Find Job</Link>
-          </li>
+          {user?.accountType === "seeker" && ( // Render "Find Job" link only for non-company accounts
+            <li>
+              <Link to="/">Find Job</Link>
+            </li>
+          )}
           <li>
             <Link to="/companies">Companies</Link>
           </li>
@@ -165,12 +166,16 @@ const Navbar = () => {
           isOpen ? "absolute flex bg-[#f7fdfd] " : "hidden"
         } container mx-auto lg:hidden flex-col pl-8 gap-3 py-5`}
       >
-        <Link to="/" onClick={handleCloseNavbar}>
-          Find Job
-        </Link>
-        <Link to="/companies" onClick={handleCloseNavbar}>
-          Companies
-        </Link>
+        {user?.accountType !== "company" && ( // Render "Find Job" link only for non-company accounts
+          <Link to="/" onClick={handleCloseNavbar}>
+            Find Job
+          </Link>
+        )}
+        {user?.accountType !== "company" && ( // Render "Companies" link only for non-company accounts
+          <Link to="/companies" onClick={handleCloseNavbar}>
+            Companies
+          </Link>
+        )}
         <Link
           onClick={handleCloseNavbar}
           to={user?.accountType === "seeker" ? "apply-history" : "upload-job"}
