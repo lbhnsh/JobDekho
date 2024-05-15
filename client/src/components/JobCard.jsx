@@ -3,11 +3,13 @@ import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 
 const JobCard = ({ job }) => {
+  console.log(job)
   const navigate = useNavigate();
 
   const handleApplyNowClick = () => {
     // Navigate to the ApplyJob component when Apply Now button is clicked
-    navigate("/apply-job");
+    // navigate("/apply-job");
+    navigate(`/apply-job/${job._id}`);
   };
 
   return (

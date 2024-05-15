@@ -241,12 +241,15 @@ export const deleteJob = async (req, res, next) => {
 };
 
 export const applyForJob = async (req, res, next) => {
+  // console.log(req.body,"controllerrrrrrrrrrrrrrrrrr")
   try {
-    const { jobId, applicantDetails } = req.body;
+    const applicantDetails  = req.body.data;
     const userId = req.body.user.userId;
-
+    console.log(userId,"userId")
+    const jobId = req.body.jobId;
+    console.log(jobId, applicantDetails,"helolololololololo")
     if (!jobId || !applicantDetails) {
-      return next("Please provide all required fields");
+      return next("Please provide all required maidan");
     }
 
     const job = await Jobs.findById(jobId);
@@ -255,9 +258,9 @@ export const applyForJob = async (req, res, next) => {
     }
 
     const application = new Applications({
-      job: jobId,
-      applicant: userId,
-      details: applicantDetails,
+      jobId: jobId,
+      applicantId: userId,
+      applicantDetails: applicantDetails,
     });
 
     await application.save();
