@@ -3,8 +3,12 @@ import { useForm } from "react-hook-form";
 import { CustomButton, Loading, TextInput } from "../components";
 import { useSelector } from "react-redux";
 import { apiRequest } from "../utils";
+import { useParams } from "react-router-dom";
 
-const ApplyJob = () => {
+const ApplyJob = (job) => {
+  const { id } = useParams();
+  const jobId=id
+  console.log(jobId,"JobId")
   const { user } = useSelector((state) => state.user);
   const {
     register,
@@ -20,11 +24,17 @@ const ApplyJob = () => {
  const onSubmit = async (data) => {
   setIsLoading(true);
   setErrMsg(null);
+  // console.log(jobId,"applyjob before postingggggggggggggg")
+
+  const myData={"jobId":jobId,
+    "data":data
+  }
+  console.log(data)
   try {
     const res = await apiRequest({
       url: "/jobs/apply",
       token: user?.token,
-      data: data,
+      data: myData,
       method: "POST",
     });
     if (res.status === "failed") {
@@ -47,9 +57,9 @@ const ApplyJob = () => {
       <div className="w-full h-fit bg-white px-5 py-10 shadow-md">
         <div>
           <p className="text-gray-500 font-semibold text-2xl">Apply for Job</p>
-          <form
+          <form onSubmit={handleSubmit(onSubmit)}
             className="w-full mt-2 flex flex-col gap-8"
-            onSubmit={handleSubmit(onSubmit)}
+            
           >
             <TextInput
               name="fullName"
@@ -109,6 +119,7 @@ const ApplyJob = () => {
                 <Loading /> 
               ) : (
                 <CustomButton
+                
                   type="submit"
                   containerStyles="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-8 py-2 text-sm font-medium text-white hover:bg-[#1d4fd846] hover:text-[#1d4fd8] focus:outline-none "
                   title="Apply Now"

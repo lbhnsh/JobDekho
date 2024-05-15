@@ -1,18 +1,19 @@
 import mongoose from "mongoose";
+import validator from "validator";
 
 const applicationSchema = new mongoose.Schema(
     {
-        job: {
+        jobId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Jobs",
+            // ref: "Jobs",
             required: true,
         },
-        applicant: {
+        applicantId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Users", // Assuming you have a Users model
+            // ref: "Users", 
             required: true,
         },
-        details: {
+        applicantDetails: {
             type: Object,
             required: true,
         },
