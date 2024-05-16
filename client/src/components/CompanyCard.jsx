@@ -19,7 +19,7 @@ const CompanyCard = ({ cmp }) => {
           >
             {cmp?.name}
           </Link>
-          <span className="text-sm text-blue-600">{cmp?.email}</span>
+          <span className="text-sm text-customBlue">{cmp?.email}</span>
         </div>
       </div>
 
