@@ -73,12 +73,13 @@ const Header = ({
             </div>
           </div>
           {type && (
-            <div className="w-full lg:1/2 flex flex-wrap gap-3 md:gap-6 py-10 md:py-14">
+            <div className="w-full lg:1/2 flex flex-wrap justify-around gap-10 md:gap-10 py-20 md:py-10">
+              <div className="font-bold">Popular Titles:</div>
               {popularSearch.map((search, index) => {
                 return (
                   <span
                     key={index}
-                    className="bg-[#1d4fd826] text-[#1d4ed8] py-1 px-2 rounded-full text-sm md:text-base"
+                    className="bg-customBlue text-white py-1 px-2 rounded-full text-sm md:text-base"
                   >
                     {search}
                   </span>
