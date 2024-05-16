@@ -1,6 +1,2 @@
-# CarrerBoost
-A full-stack Job finding application made using MongoDB, Express, ReactJS, Node.js(MERN)
-The application allows for seekers to search for jobs posted by companies.
-
-Using the search functionality, user can enter keywords, location or company name to find their desired job. Companies also have the ability edit jobs.
-Users can also view the job description, company profile while simultaneously having their own profile.
+# JobDekho
+JobDekho is an MERN stack based Website that helps both recruitees and recruiters connect. We have two login based roles, one for Admin and one for User. The user can apply for various jobs and the admin can post the job positions that are open. The user has a profile where you can see his details as well as his resume. The company has a profile including contact details and their description. This is a great website for recruiters as well as recruitees.
