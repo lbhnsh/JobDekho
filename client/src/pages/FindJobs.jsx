@@ -105,7 +105,7 @@ const FindJobs = () => {
   }, [sort, filterJobTypes, filterExp, page]);
 
   return (
-    <div className="text-blue  p-4 mx-auto">
+    <div className="text-customBlue  p-4 mx-auto">
       <div>
       <Header
         title="Find Your Dream Company"
@@ -222,7 +222,7 @@ const FindJobs = () => {
               <CustomButton
                 onClick={handleShowMore}
                 title="Load More"
-                containerStyles={`text-blue-600 py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600`}
+                containerStyles={`text-customBlue py-1.5 px-5 focus:outline-none hover:bg-blue-700 hover:text-white rounded-full text-base border border-blue-600`}
               />
             </div>
           )}

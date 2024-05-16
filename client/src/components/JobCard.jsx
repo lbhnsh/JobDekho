@@ -38,7 +38,7 @@ const JobCard = ({ job }) => {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <p className="bg-[#1d4fd826] text-[#1d4fd8] py-0.5 px-1.5 rounded font-semibold text-sm mr-2">
+            <p className="bg-[#1d4fd826] text-customBlue py-0.5 px-1.5 rounded font-semibold text-sm mr-2">
               {job?.jobType}
             </p>
             <span className="text-gray-500 text-sm ml-auto">
@@ -48,7 +48,7 @@ const JobCard = ({ job }) => {
           {/* Apply Now button */}
           <button
             onClick={handleApplyNowClick} // Call the handleApplyNowClick function
-            className="bg-blue-600 text-white py-1.5 px-4 rounded-md text-sm hover:bg-blue-700 focus:outline-none"
+            className="bg-customBlue text-white py-1.5 px-4 rounded-md text-sm hover:bg-blue-700 focus:outline-none"
           >
             Apply Now
           </button>

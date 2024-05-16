@@ -243,14 +243,14 @@ const CompanyProfile = () => {
               <CustomButton
                 onClick={() => setOpenForm(true)}
                 iconRight={<FiEdit3 />}
-                containerStyles={`py-1.5 px-3 md:px-5 focus:outline-none bg-blue-600 hover:bg-blue-700 text-white rounded text-sm md:text-base border border-blue-600`}
+                containerStyles={`py-1.5 px-3 md:px-5 focus:outline-none bg-customBlue hover:bg-blue-700 text-white rounded text-sm md:text-base border border-blue-600`}
               />
 
               <Link to="/upload-job">
                 <CustomButton
                   title="Upload Job"
                   iconRight={<FiUpload />}
-                  containerStyles={`text-blue-600 py-1.5 px-3 md:px-5 focus:outline-none rounded text-sm md:text-base border border-blue-600`}
+                  containerStyles={`text-customBlue py-1.5 px-3 md:px-5 focus:outline-none rounded text-sm md:text-base border border-blue-600`}
                 />
               </Link>
             </div>
@@ -269,7 +269,7 @@ const CompanyProfile = () => {
 
           <div className="flex flex-col items-center mt-10 md:mt-0">
             <span className="text-xl">{info?.jobPosts?.length}</span>
-            <p className="text-blue-600 ">Job Post(s)</p>
+            <p className="text-customBlue ">Job Post(s)</p>
           </div>
         </div>
       </div>

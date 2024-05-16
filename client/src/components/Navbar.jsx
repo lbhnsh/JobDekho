@@ -78,7 +78,7 @@ function MenuList({ user, onClick }) {
                   <button
                     onClick={() => handleLogOut()}
                     className={`${
-                      active ? "bg-blue-500 text-white" : "text-gray-900"
+                      active ? "bg-customBlue text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     <AiOutlineLogout
