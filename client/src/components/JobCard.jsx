@@ -1,11 +1,13 @@
 import { GoLocation } from "react-icons/go";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const JobCard = ({ job }) => {
   console.log(job)
-  const navigate = useNavigate();
-
+  const { user } = useSelector((state) => state.user);
+  const navigate = useNavigate();     
+  console.log(user,"finaleeeeeeeeeeeeeeeeeeeeeeeeee")
   const handleApplyNowClick = () => {
     // Navigate to the ApplyJob component when Apply Now button is clicked
     // navigate("/apply-job");

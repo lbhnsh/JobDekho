@@ -13,7 +13,7 @@ import errorMiddleWare from "./middleware/errorMiddleware.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8800;
+const PORT = 8800;
 
 // DB connection
 dbConnection();

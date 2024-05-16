@@ -275,3 +275,64 @@ export const applyForJob = async (req, res, next) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// export const getAllJobs = async (req, res, next) => {
+//   try {
+//     // const applicantId = req.params.id; // Extracting the id from req.params
+//     const applicantId="66449f13a71b21ed23057f78"
+//     console.log(applicantId, "applicantId");
+//     const job = await Applications.findById(applicantId);
+//     console.log(job, "job");
+//     if (!job) {
+//       return res.status(404).json({ message: 'Job not found' });
+//     }
+//     res.json({ job });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: err.message });
+//   }
+// };
+
+export const getAllJobs = async (req, res, next) => {
+  try {
+    const applicantId = req.params.id; // Extracting the id from req.params
+    console.log(applicantId, "applicantId");
+    
+    // Check if the applicantId is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(applicantId)) {
+      return res.status(400).json({ message: 'Invalid applicant ID' });
+    }
+
+    
+    const finalDataArray = [];
+
+    const jobs = await Applications.find({ applicantId });
+    console.log(jobs, "jobs\n");
+    for (let i = 0; i < jobs.length; i++) {
+      const naukri = await Jobs.find( jobs[i].jobId );
+      console.log(naukri, "naukri");
+      const company = await Companies.find( jobs[i].company );
+      console.log(company, "company");
+
+      const finalData = {
+        uniqueId: jobs[i]._id,
+        companyName: company[0].name,
+        jobTitle: naukri[0].jobTitle,
+        jobType: naukri[0].jobType,
+        location: naukri[0].location,
+        salary: naukri[0].salary,
+        time: naukri[0].createdAt
+      };
+      finalDataArray.push(finalData);
+    }
+    
+    // console.log(finalDataArray)
+    if (jobs.length === 0) {
+      return res.json({ message: 'No jobs found for the applicant' });
+    }
+    else{res.send(finalDataArray);}
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: err.message });
+  }
+};

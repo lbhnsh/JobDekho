@@ -13,6 +13,7 @@ import {
   UserProfile,
 } from "./pages";
 import { useSelector } from "react-redux";
+import Applications from "./pages/UserApplications";
 
 function Layout() {
   const { user } = useSelector((state) => state.user);
@@ -52,6 +53,7 @@ function App() {
           <Route path="/upload-job" element={<UploadJob />} />
           <Route path="/apply-job/:id" element={<ApplyJob />} /> {/* Add this line */}
           <Route path="/job-detail/:id" element={<JobDetail />} />
+          <Route path="/applications" element={<Applications />} />
         </Route>
 
         <Route path="/about-us" element={<About />} />
